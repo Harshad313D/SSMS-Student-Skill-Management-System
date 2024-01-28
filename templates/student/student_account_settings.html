@@ -1,0 +1,255 @@
+{% extends 'student/base_student.html' %}
+
+{% block content %}
+<div class="nk-block nk-block-lg">
+    {% if message %}
+    <div class="alert alert-fill alert-success alert-icon">
+        <em class="icon ni ni-check-circle"></em> <strong>Done</strong>, {{ message }}
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="alert alert-fill alert-danger alert-icon">
+        <em class="icon ni ni-cross-circle"></em> <strong>Error</strong>, {{ error}}
+    </div>
+    {% endif %}
+    <div class="card card-bordered">
+        <div class="card-inner">
+            <div class="container mt-5">
+                <h2 class="mb-4">Student Information</h2>
+
+                <!-- Personal Information -->
+                <h3>Personal</h3>
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="date_of_birth" class="form-label">Date of Birth (mm/dd/yy) </label>
+                            <input type="date" class="form-control" id="date_of_birth" name="date_of_birth"
+                                   {% if student.date_of_birth %} value="{{ student.date_of_birth|date:'Y-m-d' }}" {% endif %}
+                                   placeholder="Select Date" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="city" class="form-label">City</label>
+                            <input required type="text" class="form-control" {% if student.city %} value="{{student.city}}" {% else %} placeholder="Eg: Aurangabad" {% endif %} id="city" name="city">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="state" class="form-label">State</label>
+                            <input required type="text" class="form-control" {% if student.state %} value="{{student.state}}" {% else %} placeholder="Eg: Maharashtra" {% endif %} id="state" name="state">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="designation" class="form-label">Designation</label>
+                            <input required type="text" class="form-control" {% if student.designation %}
+                                   value="{{student.designation}}" {% else %}
+                                   placeholder="Eg: Full Stack Developer / Django Developer / Data Analyst" {% endif %}
+                                   id="designation" name="designation">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="experience_years" class="form-label">Experience (Years)</label>
+                            <input required type="number" class="form-control" {% if student.experience_years %}
+                                   value="{{student.experience_years}}" {% else %} placeholder="Eg: 0 / 1 / 2 / 3" {% endif %} id="experience_years" name="experience_years">
+                        </div>
+                            <div class="col-md-4">
+                                <label for="gender" class="form-label">Gender</label>
+                                    <select required class="form-select" id="gender" name="gender">
+                                {% if student.gender %}
+                                    <option value="{{ student.gender }}" selected>{{ student.gender }}</option>
+                                {% else %}
+                                    <option value="" selected disabled>Select Gender</option>
+                                {% endif %}
+                                    <option value="M">M</option>
+                                    <option value="F">F</option>
+                                    </select>
+                            </div>
+
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <label for="about_me" class="form-label">About Me</label>
+                        <textarea required class="form-control" rows="5" id="about_me" name="about_me"
+                                  placeholder="Enter your About Me (up to 200 letters)">{% if student.about_me %}{{ student.about_me }} {% endif %}</textarea>
+                    </div>
+
+
+
+                    <!-- Add other personal information fields here -->
+
+                    <!-- Current Academic Information -->
+                    <h3 class="mt-4">Current Academic</h3>
+
+                    <div class="row mb-3">
+    <div class="col-md-6">
+        <label for="division" class="form-label">Division</label>
+        <select required class="form-select" id="division" name="division">
+            {% if student.division %}
+                <option value="{{ student.division }}" selected>{{ student.division }}</option>
+            {% else %}
+                <option value="" selected disabled>Select Division</option>
+            {% endif %}
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <!-- Add more division options if needed -->
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="preferred_language" class="form-label">Preferred Language</label>
+        <select required class="form-select" id="preferred_language" name="preferred_language">
+            {% if student.preferred_language %}
+                <option value="{{ student.preferred_language }}" selected>{{ student.preferred_language }}</option>
+            {% else %}
+                <option value="" selected disabled>Select Language</option>
+            {% endif %}
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="C++">C++</option>
+            <!-- Add more language options if needed -->
+        </select>
+    </div>
+</div>
+
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="c_degree" class="form-label">Current Degree</label>
+                            <input required type="text" class="form-control" {% if student.c_degree %}
+                                   value="{{student.c_degree}}" {% else %} placeholder="Eg: BTech" {% endif %}
+                                   id="c_degree" name="c_degree">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="c_department" class="form-label">Current Department</label>
+                            <input required type="text" class="form-control" {% if student.c_department %}
+                                   value="{{student.c_department}}" {% else %} placeholder="Eg: CSE" {% endif %}
+                                   id="c_department" name="c_department">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="current_year" class="form-label">Current Year</label>
+                            <input required type="number" class="form-control" {% if student.current_year %}
+                                   value="{{student.current_year}}" {% else %} placeholder="Eg: 2023 / 2024 / 2025" {% endif %} id="current_year" name="current_year">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="current_semester" class="form-label">Current Semester</label>
+                            <select required class="form-select" id="current_semester" name="current_semester">
+                                {% if student.current_semester %} {% else %}
+                                <option value="Select Semester" selected disabled>Select Semester</option>
+                                {% endif %}
+                                <option value="1" {% if student.current_semester == 1 %} selected {% endif %}>1</option>
+                                <option value="2" {% if student.current_semester == 2 %} selected {% endif %}>2</option>
+                                <option value="3" {% if student.current_semester == 3 %} selected {% endif %}>3</option>
+                                <option value="4" {% if student.current_semester == 4 %} selected {% endif %}>4</option>
+                                <option value="5" {% if student.current_semester == 5 %} selected {% endif %}>5</option>
+                                <option value="6" {% if student.current_semester == 6 %} selected {% endif %}>6</option>
+                                <option value="7" {% if student.current_semester == 7 %} selected {% endif %}>7</option>
+                                <option value="8" {% if student.current_semester == 8 %} selected {% endif %}>8</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cgpa" class="form-label">CGPA</label>
+                            <input required type="number" step="0.01" {% if student.cgpa %}
+                                   value="{{student.cgpa}}" {% else %} placeholder="Eg: 8.1" {% endif %}
+                                   class="form-control" id="cgpa" name="cgpa">
+                        </div>
+                    </div>
+
+
+                    <!-- Add other current academic information fields here -->
+
+                    <!-- Secondary Education Information -->
+                    <h3 class="mt-4">Secondary Education</h3>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="ss_name" class="form-label">Secondary education Type (12th / Diploma)</label>
+                            <select required class="form-select" id="ss_name" name="ss_name">
+                                {% if student.ss_name %} {% else %} <option value="12th" {% if student.ss_name == '12th' %} selected disabled {% endif %}>12th</option> {% endif %}
+                                <option value="12th" {% if student.ss_name == '12th' %} selected {% endif %}>12th</option>
+                                <option value="Diploma" {% if student.ss_name == 'Diploma' %} selected {% endif %}>Diploma</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ss_school_name" class="form-label">School Name</label>
+                            <input required type="text" class="form-control" id="ss_school_name" name="ss_school_name"
+                                   {% if student.ss_school_name %} value="{{ student.ss_school_name }}" {% endif %}
+                                   placeholder="Eg: XYZ School">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="ss_start_year" class="form-label">Start Year (mm/dd/yy)</label>
+                            <input required type="date" class="form-control" id="ss_start_year" name="ss_start_year"
+                                   {% if student.ss_start_year %} value="{{ student.ss_start_year|date:'Y-m-d' }}" {% endif %}
+                                   placeholder="Select Date">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ss_end_year" class="form-label">End Year (mm/dd/yy)</label>
+                            <input required type="date" class="form-control" id="ss_end_year" name="ss_end_year"
+                                   {% if student.ss_end_year %} value="{{ student.ss_end_year|date:'Y-m-d' }}" {% endif %}
+                                   placeholder="Select Date">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ss_marks" class="form-label">Marks</label>
+                            <input required type="number" step="0.01" class="form-control" id="ss_marks" name="ss_marks"
+                                   {% if student.ss_marks %} value="{{ student.ss_marks }}" {% endif %}
+                                   placeholder="Eg: 85.5" max="100.00">
+                        </div>
+                    </div>
+
+                    <!-- Primary Education Information -->
+                    <h3 class="mt-4">Primary Education</h3>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="ps_name" class="form-label">Primary School Name</label>
+                            <input required type="text" class="form-control" id="ps_name" name="ps_name"
+                                   value="10th"
+                                   placeholder="Eg: 10th">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ps_school_name" class="form-label">School Name</label>
+                            <input required type="text" class="form-control" id="ps_school_name" name="ps_school_name"
+                                   {% if student.ps_school_name %} value="{{ student.ps_school_name }}" {% endif %}
+                                   placeholder="Eg: ABC School">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="ps_start_year" class="form-label">Start Year (mm/dd/yy)</label>
+                            <input required type="date" class="form-control" id="ps_start_year" name="ps_start_year"
+                                   {% if student.ps_start_year %} value="{{ student.ps_start_year|date:'Y-m-d' }}" {% endif %}
+                                   placeholder="Select Date">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ps_end_year" class="form-label">End Year (mm/dd/yy)</label>
+                            <input required type="date" class="form-control" id="ps_end_year" name="ps_end_year"
+                                   {% if student.ps_end_year %} value="{{ student.ps_end_year|date:'Y-m-d' }}" {% endif %}
+                                   placeholder="Select Date">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ps_marks" class="form-label">Marks</label>
+                            <input required type="number" step="0.01" class="form-control" id="ps_marks" name="ps_marks"
+                                   {% if student.ps_marks %} value="{{ student.ps_marks }}" {% endif %}
+                                   placeholder="Eg: 90.0" max="100.00">
+                        </div>
+                    </div>
+                    <!-- Add other secondary and primary education information fields here -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

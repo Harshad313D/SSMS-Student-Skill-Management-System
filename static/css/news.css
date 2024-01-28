@@ -1,0 +1,21 @@
+/* Define a keyframes animation for the glow effect */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff0000; /* Start with red glow */
+        color: #ff0000; /* Start with red text color */
+    }
+    50% {
+        text-shadow: 0 0 10px #ffcc00; /* Transition to yellow glow */
+        color: #ffcc00; /* Transition to yellow text color */
+    }
+    100% {
+        text-shadow: 0 0 5px #ff0000; /* Back to red glow */
+        color: #ff0000; /* Back to red text color */
+    }
+}
+
+/* Apply the animation and styling to the h6 element */
+.glowing-text {
+    animation: glow 2s infinite alternate; /* Use the 'glow' animation with alternate looping */
+    display: inline-block; /* Ensure the animation works */
+}

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+        .header {
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+        .content {
+            padding: 20px;
+        }
+        .message {
+            font-size: 16px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        .credentials {
+            font-size: 16px;
+            color: #333333;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #007ee5;
+            color: #ffffff;
+            font-size: 16px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="http://172.16.9.13/static/images/logo/logo.jpg" alt="Logo" class="logo">
+        </div>
+        <div class="content">
+            <h1 class="message">Account Created Successfully</h1>
+            <p class="message">Your account has been successfully created. Welcome to our platform!</p>
+            <div class="credentials">
+                <p><strong>Username:</strong> {{ username }} </p>
+                <p><strong>Password:</strong> {{ password }} </p>
+            </div>
+            <p class="message">Please login using the provided credentials and consider changing your password for security reasons.</p>
+            <a href="http://172.16.9.13" class="button">Login</a>
+        </div>
+    </div>
+</body>
+</html>

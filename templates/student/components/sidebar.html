@@ -1,0 +1,113 @@
+{% load static %}
+<div class="nk-sidebar" data-content="sidebarMenu">
+    <div class="nk-sidebar-bar">
+        <div class="nk-apps-brand">
+            <a href="{% url 'student_dashboard' %}" class="logo-link">
+                <img class="logo-light logo-img" src="{% static '/images/logo1.png' %}"
+                     srcset="{% static '/images/logo4.png' %}" alt="logo">
+                <img class="logo-dark logo-img" src="{% static '/images/logo.png' %}"
+                     srcset="{% static '/images/logo4.png' %}" alt="logo-dark">
+            </a>
+        </div>
+        <div class="nk-sidebar-element">
+            <div class="nk-sidebar-body">
+                <div class="nk-sidebar-content" data-simplebar>
+                    <div class="nk-sidebar-menu">
+                        <!-- Menu -->
+                        <ul class="nk-menu apps-menu">
+                            <li class="nk-menu-item active">
+                                <a href="#" class="nk-menu-link nk-menu-switch" data-target="navDashboards">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nk-sidebar-footer">
+                        <ul class="nk-menu nk-menu-md apps-menu">
+                            <li class="nk-menu-item">
+                                <a href="#" class="nk-menu-link" title="Settings">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nk-sidebar-profile nk-sidebar-profile-fixed dropdown">
+                    <a href="#" data-toggle="dropdown" data-offset="50,-50">
+                        <div class="user-avatar">
+                            <span><em class="icon ni ni-user-alt-fill"></em></span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md ml-4">
+                        <div class="dropdown-inner user-card-wrap d-none d-md-block">
+                            <div class="user-card">
+                                <div class="user-avatar">
+                                    <span><em class="icon ni ni-user-alt-fill"></em></span>
+                                </div>
+                                <div class="user-info">
+                                    <span class="lead-text">{{ request.user.first_name }} {{ request.user.last_name }}</span>
+                                    <span class="sub-text text-soft">{{ request.user.email }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-inner">
+                            <ul class="link-list">
+                                <li><a href="{% url 'student_profile' %}"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                                <li><a href="{% url 'student_account_settings' %}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-inner">
+                            <ul class="link-list">
+                                <li><a href="{% url 'logout_view' %}"><em
+                                        class="icon ni ni-signout"></em><span>Logout</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nk-sidebar-main is-light">
+        <div class="nk-sidebar-inner" data-simplebar>
+            <div class="nk-menu-content menu-active" data-content="navDashboards">
+                <h5 class="title">Student Dashboard</h5>
+                <ul class="nk-menu">
+                    <li class="nk-menu-item">
+                        <a href="{% url 'student_dashboard' %}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-view-group-wd"></em></span>
+                            <span class="nk-menu-text">Feature 1</span>
+                        </a>
+                    </li>
+                    <li class="nk-menu-item">
+                        <a href="{% url 'student_dashboard' %}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-text-rich"></em></span>
+                            <span class="nk-menu-text">Feature 2</span>
+                        </a>
+                    </li>
+                    <li class="nk-menu-item">
+                        <a href="{% url 'student_dashboard' %}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-file-pdf"></em></span>
+                            <span class="nk-menu-text">Feature 3</span>
+                        </a>
+                    </li><!-- .nk-menu-item -->
+                </ul><!-- .nk-menu -->
+            </div>
+
+            <div class="nk-menu-content" data-content="navAttendance">
+                <h5 class="title">Attendance</h5>
+                <ul class="nk-menu">
+                    <li class="nk-menu-item">
+                        <a href="#" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-property-add"></em></span>
+                            <span class="nk-menu-text">Text</span>
+                        </a>
+                    </li>
+
+
+
+                </ul><!-- .nk-menu -->
+            </div>
+        </div>
+    </div>
+</div>

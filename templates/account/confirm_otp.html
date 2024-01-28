@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SSMS MODULE LOGIN">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="{% static 'images/logo1.png' %}">
+    <!-- Page Title  -->
+    <title>Confirm OTP | SSMS</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="{% static 'css/dashlite.css'%}">
+    <link id="skin-default" rel="stylesheet" href="{% static 'css/theme.css'%}">
+</head>
+
+<body class="nk-body ui-rounder npc-default pg-auth">
+<div class="nk-app-root">
+    <!-- main @s -->
+    <div class="nk-main ">
+        <!-- wrap @s -->
+        <div class="nk-wrap nk-wrap-nosidebar">
+            <!-- content @s -->
+            <div class="nk-content ">
+                <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
+                    <div class="card card-bordered">
+                        <div class="card-inner card-inner-lg">
+                            <div class="nk-block-head">
+                                <div class="nk-block-head-content" style="text-align: center;">
+                                    <h5 class="nk-block-title">Reset password</h5>
+                                    <div class="nk-block-des">
+                                        <p>Please Confirm OTP which has been sent to your registered email address.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="form-label-group">
+                                        <label class="form-label" for="default-01">OTP</label>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" name="otp" id="default-01"
+                                           placeholder="Enter OTP">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-label-group">
+                                        <label class="form-label" for="default-02">New Password</label>
+                                    </div>
+                                    <input type="password" class="form-control form-control-lg" name="new_password" id="default-02"
+                                           placeholder="Enter New Password">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-label-group">
+                                        <label class="form-label" for="default-03">Re-Enter New Password</label>
+                                    </div>
+                                    <input type="password" class="form-control form-control-lg" name="re_new_password" id="default-03"
+                                           placeholder="Re-Enter New Password">
+                                </div>
+                                {% if error %}
+                                <div class="alert alert-icon alert-danger" role="alert">
+                                    <em class="icon ni ni-alert-circle"></em>
+                                    <strong>{{ error }}</strong>
+                                </div>
+                                {% endif %}
+                                <div class="form-group">
+                                    <button class="btn btn-lg btn-info btn-block">Submit</button>
+                                </div>
+                            </form>
+                            <div class="form-note-s2 text-center pt-4">
+                                <a href="{% url 'login' %}"><strong>Return to login</strong></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nk-footer nk-auth-footer-full">
+                    <div class="container wide-lg">
+                        <div class="row g-3">
+                            <div class="col-lg-6 order-lg-last">
+                                <ul class="nav nav-sm justify-content-center justify-content-lg-end">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Terms & Condition</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Privacy Policy</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Help</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="nk-block-content text-center text-lg-left">
+                                    <p class="text-soft">&copy; 2023 SSMS All Rights Reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- content @e -->
+    </div>
+    <!-- main @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+<script src="{% static 'js/bundle.js'%}"></script>
+<script src="{% static 'js/scripts.js'%}"></script>
+
+</html>

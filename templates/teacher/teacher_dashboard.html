@@ -1,0 +1,144 @@
+{% extends "teacher/base_teacher.html" %}
+
+{% block content %}
+
+
+
+
+
+<!--<div class="card card-preview">-->
+<!--    <div class="card-inner">-->
+<!--        <div class="card-inner">-->
+<!--            <div class="team">-->
+
+<!--                <div class="user-card user-card-s2">-->
+<!--                    <div class="user-avatar md bg-primary">-->
+<!--                        <span>{{ teacher_info.teacher.first_name.0 }}{{ teacher_info.teacher.last_name.0 }}</span>-->
+<!--                        <div class="status dot dot-lg dot-success"></div>-->
+<!--                    </div>-->
+<!--                    <div class="user-info">-->
+<!--                        <h6>Welcome, {{ teacher_info.teacher.first_name }} {{ teacher_info.teacher.last_name }} !</h6>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="team-details">-->
+<!--                    <p>{{ teacher_info.teacher.email }}</p>-->
+<!--                </div>-->
+<!--            </div>&lt;!&ndash; .team &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; .card-inner &ndash;&gt;-->
+<!--    </div>&lt;!&ndash; .card &ndash;&gt;-->
+<!--</div>-->
+<!--<br>-->
+
+<!--<h2> About <span style="color: red;">{{ teacher_info.teacher.first_name }}</span></h2>-->
+
+
+<div class="nk-block">
+     <h4>About Teacher !</h4>
+</div>
+
+<div class="nk-block">
+<!--    <h2> About <span style="color: red;">{{ teacher_info.teacher.first_name }}</span></h2>-->
+
+    <div class="row g-gs">
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card">
+                <div class="nk-ecwg nk-ecwg6">
+                    <div class="card-inner">
+                        <div class="card-title-group">
+                            <div class="card-title">
+                                <h6 class="title">Welcome, Teacher</h6>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="data-group">
+                                <div class="amount">{{ teacher_info.teacher.first_name }} {{ teacher_info.teacher.last_name }} </div>
+                                <div class="nk-ecwg6-ck">
+                                    <canvas class="ecommerce-line-chart-s3" id="todayOrders"></canvas>
+                                </div>
+                            </div>
+                            <div class="info"><span>{{ teacher_info.teacher.email }}</span>
+                            </div>
+                        </div>
+                    </div><!-- .card-inner -->
+                </div><!-- .nk-ecwg -->
+            </div><!-- .card -->
+        </div><!-- .col -->
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card">
+                <div class="nk-ecwg nk-ecwg6">
+                    <div class="card-inner">
+                        <div class="card-title-group">
+                            <div class="card-title">
+                                <h6 class="title">Teaching Experience</h6>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="data-group">
+                                <div class="amount">{{ teacher_info.years_of_experience }} yrs</div>
+                                <div class="nk-ecwg6-ck">
+                                    <canvas class="ecommerce-line-chart-s3" id="todayRevenue"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- .card-inner -->
+                </div><!-- .nk-ecwg -->
+            </div><!-- .card -->
+        </div><!-- .col -->
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card">
+                <div class="nk-ecwg nk-ecwg6">
+                    <div class="card-inner">
+                        <div class="card-title-group">
+                            <div class="card-title">
+                                <h6 class="title">Qualifications</h6>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="data-group">
+                                <div class="amount">{{ teacher_info.qualifications  }}</div>
+                                <div class="nk-ecwg6-ck">
+                                    <canvas class="ecommerce-line-chart-s3" id="todayCustomers"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- .card-inner -->
+                </div><!-- .nk-ecwg -->
+            </div><!-- .card -->
+        </div><!-- .col -->
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card">
+                <div class="nk-ecwg nk-ecwg6">
+                    <div class="card-inner">
+                        <div class="card-title-group">
+                            <div class="card-title">
+                                <h6 class="title"> Subject Taught (Current Semester) </h6>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="data-group">
+                                <div class="amount">{{ teacher_info.subjects_taught }}</div>
+                                <div class="nk-ecwg6-ck">
+                                    <canvas class="ecommerce-line-chart-s3" id="todayVisitors"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- .card-inner -->
+                </div><!-- .nk-ecwg -->
+            </div><!-- .card -->
+        </div><!-- .col -->
+
+    </div>
+</div><!-- .card-inner -->
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+</script>
+
+{% endblock %}

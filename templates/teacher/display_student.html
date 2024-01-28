@@ -1,0 +1,109 @@
+{% extends "teacher/base_teacher.html" %}
+
+{% block content %}
+
+<div class="card card-preview">
+
+    <div class="card-inner">
+        <div class="nk-block-head-content">
+            <h4 class="nk-block-title">Students </h4>
+            <!--            <div class="nk-block-des">-->
+            <!--                <p>Displayed all the students</p>-->
+            <!--            </div>-->
+        </div>
+        <div class="container mt-5">
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label class="font-weight-bold">Gender:</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="gender" value="M" id="genderM">
+                            <label class="form-check-label" for="genderM">Male</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="gender" value="F" id="genderF">
+                            <label class="form-check-label" for="genderF">Female</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col">
+                        <label class="font-weight-bold">Division:</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="division" value="A" id="divisionA">
+                            <label class="form-check-label" for="divisionA">A</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="division" value="B" id="divisionB">
+                            <label class="form-check-label" for="divisionB">B</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col">
+                        <label class="font-weight-bold">Language:</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="language" value="Java" id="languageJava">
+                            <label class="form-check-label" for="languageJava">Java</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="language" value="Python"
+                                   id="languagePython">
+                            <label class="form-check-label" for="languagePython">Python</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+        <br>
+        <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
+            <thead>
+            <tr class="nk-tb-item nk-tb-head">
+                <th class="nk-tb-col"><span class="sub-text">User</span></th>
+                <th class="nk-tb-col tb-col-mb"><span class="sub-text">Date of Birth</span></th>
+                <th class="nk-tb-col tb-col-md"><span class="sub-text">Phone</span></th>
+                <th class="nk-tb-col tb-col-lg"><span class="sub-text">Designation</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in students %}
+            <tr class="nk-tb-item">
+                <td class="nk-tb-col">
+                    <div class="user-card">
+                        <div class="user-avatar bg-dim-primary d-none d-sm-flex">
+                            <span>{{ i.student.first_name.0 }}{{ i.student.last_name.0 }}</span>
+                        </div>
+                        <div class="user-info">
+                            <span class="tb-lead">{{ i.student.first_name }} {{ i.student.last_name }}<span
+                                    class="dot dot-success d-md-none ml-1"></span></span>
+                            <span>{{i.student.email}}</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="nk-tb-col tb-col-mb" data-order="35040.34">
+                    <span class="tb-amount">{% if i.date_of_birth %} {{ i.date_of_birth }} {% else %} - {% endif %}</span>
+                </td>
+                <td class="nk-tb-col tb-col-md">
+                    <span>{{i.student.phone_number}}</span>
+                </td>
+                <td class="nk-tb-col tb-col-lg">
+                    <span>{% if i.designation %} {{i.designation}} {% else %} - {% endif %}</span>
+                </td>
+            </tr><!-- .nk-tb-item  -->
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+</script>
+
+{% endblock %}

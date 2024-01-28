@@ -1,0 +1,78 @@
+{% extends "teacher/base_teacher.html" %}
+
+{% block content %}
+<div class="nk-block nk-block-lg">
+    <div class="card card-bordered">
+        <div class="card-inner">
+            <form method="POST" class="form-validate is-alter" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row g-gs">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-label" for="excel_file">Excel Upload</label>
+                            <div class="form-control-wrap">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="excel_file" id="excel_file">
+                                    <label class="custom-file-label" for="excel_file">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label" for="download_sample">Download Sample</label>
+                        <div class="form-group">
+                            <a href="{% url 'download_sample_file' %}" id='download_sample' class="btn btn-lg btn-light"
+                               download><em class="icon ni ni-download"></em></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-gs">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-lg btn-primary">Upload File</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-gs">
+                    {% for i in students_already_exist %}
+                    <div class="col-md-12">
+                        <div class="alert alert-warning alert-icon">
+                            <em class="icon ni ni-alert-circle"></em> <strong> {{ i.email }} - Already Existed </strong>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% if error %}
+                    <div class="col-md-12">
+                        <div class="alert alert-danger alert-icon">
+                            <em class="icon ni ni-cross-circle"></em> <strong> {{ error }} </strong>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if message %}
+                    <div class="col-md-12">
+                        <div class="alert alert-success alert-icon">
+                            <em class="icon ni ni-check-circle"></em> <strong> {{ message }} </strong>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+</div><!-- .nk-block -->
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+</script>
+
+{% endblock %}

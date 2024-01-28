@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SSMS Login Portal">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="{% static 'images/logo1.png' %}">
+    <!-- Page Title  -->
+    <title>Home | SSMS</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="{% static 'css/dashlite.css'%}">
+    <link id="skin-default" rel="stylesheet" href="{% static 'css/theme.css'%}">
+    <link id="news" rel="stylesheet" href="{% static 'css/news.css'%}">
+    <script src="{% static 'js/table2excel.js' %}"></script>
+</head>
+
+<body class="nk-body ui-rounder npc-default has-sidebar ">
+<div class="nk-app-root">
+
+    {% include 'student/components/sidebar.html' %}
+
+    <!-- main @s -->
+    <div class="nk-main ">
+        <!-- wrap @s -->
+        <div class="nk-wrap ">
+            <!-- main header @s -->
+            <div class="nk-header nk-header-fixed nk-header-fluid is-light">
+                <div class="container-fluid">
+                    <div class="nk-header-wrap">
+                        <div class="nk-menu-trigger d-xl-none ml-n1">
+                            <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
+                                    class="icon ni ni-menu"></em></a>
+                        </div>
+                        <div class="nk-header-brand d-xl-none">
+                            <a href="{% url 'student_dashboard' %}" class="logo-link">
+                                <img class="logo-light logo-img" src="{% static '/images/logo.png' %}" srcset="{% static '/images/logo.png' %}"
+                                     alt="logo">
+                                <img class="logo-dark logo-img" src="{% static '/images/logo.png' %}"
+                                     srcset="{% static '/images/logo.png' %}" alt="logo-dark">
+                            </a>
+                        </div><!-- .nk-header-brand -->
+
+                        <!-- @@@@@@@ News Section @@@@@@@ -->
+                        {% include 'student/components/news.html' %}
+
+
+                        <div class="nk-header-tools">
+                            <ul class="nk-quick-nav">
+
+                                <!-- @@@@@@ Notification @@@@@@@ -->
+                                {% include 'student/components/notification.html' %}
+
+                                <!-- @@@@@@ User @@@@@@ -->
+                                {% include 'student/components/user.html' %}
+
+                            </ul>
+                        </div>
+                    </div><!-- .nk-header-wrap -->
+                </div><!-- .container-fliud -->
+            </div>
+            <!-- main header @e -->
+            <!-- content @s -->
+            <div class="nk-content ">
+                <div class="container-fluid">
+                    <div class="nk-content-inner">
+                        <div class="nk-content-body">
+
+                            <!-- @@@@@@ PageInfo @@@@@@ -->
+                            {% include 'student/components/page_info.html' %}
+
+                            {% block content %} {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content @e -->
+        </div>
+        <!-- wrap @e -->
+    </div>
+    <!-- main @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+
+{% block scripts %} {% endblock %}
+
+
+<script src="{% static 'js/charts/chart-ecommerce.js' %}"></script>
+<script src="{% static 'js/bundle.js'%}"></script>
+<script src="{% static 'js/scripts.js'%}"></script>
+
+</body>
+
+</html>

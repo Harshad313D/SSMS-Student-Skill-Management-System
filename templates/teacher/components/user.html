@@ -1,0 +1,34 @@
+<li class="dropdown user-dropdown">
+    <a href="#" class="dropdown-toggle mr-n1" data-toggle="dropdown">
+        <div class="user-toggle">
+            <div class="user-avatar sm">
+                <em class="icon ni ni-user-alt"></em>
+            </div>
+        </div>
+    </a>
+    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+        <div class="dropdown-inner user-card-wrap bg-lighter">
+            <div class="user-card">
+                <div class="user-avatar">
+                    <span><em class="icon ni ni-user-alt-fill"></em></span>
+                </div>
+                <div class="user-info">
+                    <span class="lead-text">{{ request.user.first_name }} {{ request.user.last_name }}</span>
+                    <span class="sub-text">{{ request.user.email }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-inner">
+            <ul class="link-list">
+                <li><a href="{% url 'add_student' %}"><em class="icon ni ni-setting-alt"></em><span>Manage Student</span></a>
+                </li>
+                <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+            </ul>
+        </div>
+        <div class="dropdown-inner">
+            <ul class="link-list">
+                <li><a href="{% url 'logout_view' %}"><em class="icon ni ni-signout"></em><span>Logout</span></a></li>
+            </ul>
+        </div>
+    </div>
+</li>

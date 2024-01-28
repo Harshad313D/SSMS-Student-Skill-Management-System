@@ -1,0 +1,98 @@
+{% extends 'student/base_student.html' %}
+
+{% block content %}
+<div class="nk-block">
+    <div class="row g-gs">
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card">
+                <div class="nk-ecwg nk-ecwg6">
+                    <div class="card-inner">
+                        <div class="card-title-group">
+                            <div class="card-title">
+                                <h6 class="title">Welcome, Student !</h6>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="data-group">
+                                <div class="amount">{{student.student.first_name}} {{student.student.last_name}}</div>
+                                <div class="nk-ecwg6-ck">
+                                    <canvas class="ecommerce-line-chart-s3" id="todayOrders"></canvas>
+                                </div>
+                            </div>
+                            <div class="info"><span>{{student.student.email}}</span>
+                            </div>
+                        </div>
+                    </div><!-- .card-inner -->
+                </div><!-- .nk-ecwg -->
+            </div><!-- .card -->
+        </div><!-- .col -->
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card">
+                <div class="nk-ecwg nk-ecwg6">
+                    <div class="card-inner">
+                        <div class="card-title-group">
+                            <div class="card-title">
+                                <h6 class="title">Internship Experience</h6>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="data-group">
+                                <div class="amount">{{student.experience_years}} yrs</div>
+                                <div class="nk-ecwg6-ck">
+                                    <canvas class="ecommerce-line-chart-s3" id="todayRevenue"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- .card-inner -->
+                </div><!-- .nk-ecwg -->
+            </div><!-- .card -->
+        </div><!-- .col -->
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card">
+                <div class="nk-ecwg nk-ecwg6">
+                    <div class="card-inner">
+                        <div class="card-title-group">
+                            <div class="card-title">
+                                <h6 class="title">Total Certifications</h6>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="data-group">
+                                <div class="amount">{{total_certifications}}</div>
+                                <div class="nk-ecwg6-ck">
+                                    <canvas class="ecommerce-line-chart-s3" id="todayCustomers"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- .card-inner -->
+                </div><!-- .nk-ecwg -->
+            </div><!-- .card -->
+        </div><!-- .col -->
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card">
+                <div class="nk-ecwg nk-ecwg6">
+                    <div class="card-inner">
+                        <div class="card-title-group">
+                            <div class="card-title">
+                                <h6 class="title">Total Projects</h6>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="data-group">
+                                <div class="amount">{{total_projects}}</div>
+                                <div class="nk-ecwg6-ck">
+                                    <canvas class="ecommerce-line-chart-s3" id="todayVisitors"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- .card-inner -->
+                </div><!-- .nk-ecwg -->
+            </div><!-- .card -->
+        </div><!-- .col -->
+
+    </div>
+</div><!-- .card-inner -->
+{% endblock %}
